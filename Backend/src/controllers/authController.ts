@@ -104,6 +104,7 @@ export const loginUser = async (req: Request, res: Response) => {
     const token = getAccessToken(req.body);
     res.cookie("token", token, {
       expires: new Date(Date.now() + 8 * 360000),
+      httpOnly: true,
     });
     res.status(200).send({
       success: true,
